@@ -56,19 +56,24 @@
       align-items: center;
     }
 
+    footer.bottles {
+      align-items: flex-start;
+    }
+
     .icon {
       font-size: 32px;
     }
 
     .copyright {
-      align-self: center;
       text-shadow: 0.1px 0.1px 2px rgb(193,97,64);
       margin-top: 20px;
     }
 
     @media screen and (max-width: 660px) {
-      footer {
+      footer,
+      footer.bottles {
         position: fixed;
+        align-items: center;
       }
     }
   </style>
@@ -86,5 +91,18 @@
       <a target="_blank" href="https://www.facebook.com/Verzell.JamFoods/" class="copyright">&copy; 2020 Jam Food Services</a>
     </footer>
   </main>
+  <script>
+    var images = [
+      "assets/images/awe-sauce-landing.jpg",
+      "assets/images/awe-sauce-bottles.jpg"
+    ];    
+    var imageElement = document.querySelector('h1 img');
+    var random = Math.floor(Math.random() * images.length);
+    imageElement.setAttribute("src", images[random]);
+    if (random) {
+      var footer = document.querySelector('footer');
+      footer.classList.add('bottles');
+    }
+  </script>
 </body>
 </html>
